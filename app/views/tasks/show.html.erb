@@ -1,0 +1,30 @@
+<h1>id:<%= @task.id %>のタスク詳細</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タスク名:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>タスク内容:</strong>
+  <%= @task.content %>
+</p>
+
+<p>
+  <strong>ステータス:</strong>
+  <!-- <%= @task.status %> -->
+  <% if @task.status == 0 %>
+    登録済
+  <% elsif @task.status == 1 %>
+    未着手
+  <% elsif @task.status == 2 %>
+    作業中
+  <% elsif @task.status == 3 %>
+    完了
+  <% end %>
+</p>
+
+<%= link_to '編集ページへ', edit_task_path(@task) %> |
+<%= link_to '一覧へ', tasks_path %>
+<%= link_to '削除', @task, method: :delete, data:{ confirm: '本当によろしいですか？'} %>

@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>タスク一覧</h1>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>登録済のタスク</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @insertedTasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(task)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>未着手のタスク</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @assignedTasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(task)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>作業中のタスク</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @processingTasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(task)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>完了のタスク</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @finishedTasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(task)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to '新規作成', new_task_path %>

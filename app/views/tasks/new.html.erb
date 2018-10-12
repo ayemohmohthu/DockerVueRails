@@ -1,0 +1,13 @@
+<h1>タスクの作成</h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :name, 'タスク名' %>
+  <%= f.text_field :name %>
+  <%= f.label :content, 'タスク内容' %>
+  <%= f.text_field :content %>
+  <%= f.label :status, 'ステータス' %>
+  <%= f.select :status, [['登録済', 0],['未着手', 1],['作業中', 2],['完了', 3]] %>
+
+  <%= f.submit '作成' %>
+<% end %>
+<%= link_to '戻る', tasks_path %>
